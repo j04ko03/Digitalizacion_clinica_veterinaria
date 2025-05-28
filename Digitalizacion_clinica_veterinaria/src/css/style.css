@@ -1,0 +1,49 @@
+/* filepath: c:\Users\CEP-MATI\Desktop\J\Digitalizacion_clinica_veterinaria\src\css\style.css */
+
+/* General styles for the web application */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.pet-profile {
+    background: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pet-name {
+    font-size: 24px;
+    color: #333;
+}
+
+.pet-details {
+    margin-top: 10px;
+}
+
+.pet-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
