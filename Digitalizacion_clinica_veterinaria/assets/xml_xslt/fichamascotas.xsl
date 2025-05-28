@@ -10,13 +10,9 @@
                 <link rel="stylesheet" type="text/css" href="../../src/css/fichas.css"/>
             </head>
             <body>
-                <header>
-                    <h1>Fitxes de Mascotes</h1>
-                    <p>Descobreix les nostres adorables mascotes!</p>
-                </header>
                 <main>
                     <div id="pet-profiles">
-                        <xsl:apply-templates select="petProfiles/pet"/>
+                        <xsl:apply-templates select="fitxes_mascotes/mascota"/>
                     </div>
                 </main>
             </body>
@@ -24,46 +20,37 @@
     </xsl:template>
 
     <!-- Plantilla per a cada mascota -->
-    <xsl:template match="pet">
+    <xsl:template match="mascota">
         <div class="pet-profile">
             <div style="display:flex;align-items:center;">
-                <xsl:if test="image">
-                    <img src="{image}" alt="{name}" class="pet-image" style="width:120px;height:120px;object-fit:cover;margin-right:20px;"/>
+                <xsl:if test="caracteristiques_fisiques/foto">
+                    <img src="{caracteristiques_fisiques/foto}" alt="{nom_mascota}" class="pet-image" style="width:120px;height:120px;object-fit:cover;margin-right:20px;"/>
                 </xsl:if>
                 <div>
                     <h2 style="margin:0;">
-                        <xsl:value-of select="name"/>
+                        <xsl:value-of select="nom_mascota"/>
                         <xsl:choose>
-                            <xsl:when test="type='Dog'">
-                                <span style="font-size:1.2em;color:#4CAF50;">🐶</span>
+                            <xsl:when test="caracteristiques_fisiques/sexe/@valor='Mascle'">
+                                <span style="font-size:1.2em;color:#4CAF50;">♂</span>
                             </xsl:when>
-                            <xsl:when test="type='Cat'">
-                                <span style="font-size:1.2em;color:#F39C12;">🐱</span>
+                            <xsl:when test="caracteristiques_fisiques/sexe/@valor='Femella'">
+                                <span style="font-size:1.2em;color:#F39C12;">♀</span>
                             </xsl:when>
-                            <xsl:when test="type='Fish'">
-                                <span style="font-size:1.2em;color:#3498db;">🐟</span>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <span style="font-size:1.2em;color:#888;">🐾</span>
-                            </xsl:otherwise>
                         </xsl:choose>
                     </h2>
                     <div class="pet-details">
                         <p>
-                            <strong>Tipo:</strong> <xsl:value-of select="type"/>
-                            <xsl:if test="type='Dog' or type='Cat'">
-                                <span style="margin-left:10px;padding:2px 8px;border-radius:10px;background:#eafaf1;color:#27ae60;font-size:0.9em;">¡Adoptable!</span>
-                            </xsl:if>
+                            <strong>Color:</strong> <xsl:value-of select="caracteristiques_fisiques/color"/>
                         </p>
-                        <p><strong>Raza:</strong> <xsl:value-of select="breed"/></p>
                         <p>
-                            <strong>Edad:</strong> <xsl:value-of select="age"/> anys
-                            <xsl:if test="number(age) &lt; 2">
-                                <span style="color:#27ae60;font-weight:bold;"> (¡Muy joven!)</span>
-                            </xsl:if>
+                            <strong>Tipo de cabello:</strong> <xsl:value-of select="caracteristiques_fisiques/tipus_cabell/@valor"/>
                         </p>
-                        <xsl:if test="description">
-                            <p style="font-style:italic;color:#555;"><xsl:value-of select="description"/></p>
+                        <p>
+                            <strong>Edad:</strong> 
+                            <xsl:value-of select="substring(2025 - substring(data_naixement, 7, 4), 1, 2)"/> anys
+                        </p>
+                        <xsl:if test="vacunacions/vacuna">
+                            <p><strong>Última vacuna:</strong> <xsl:value-of select="vacunacions/vacuna[1]/nom_vacuna"/></p>
                         </xsl:if>
                     </div>
                 </div>

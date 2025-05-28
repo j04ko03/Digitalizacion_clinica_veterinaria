@@ -47,3 +47,27 @@ h1 {
     height: auto;
     border-radius: 5px;
 }
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 16px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}

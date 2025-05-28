@@ -8,18 +8,27 @@ body {
 }
 
 .pet-profile {
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .pet-profile:hover {
-    box-shadow: 0 4px 16px rgba(76,175,80,0.15);
-    transform: translateY(-2px) scale(1.01);
-    transition: all 0.2s;
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pet-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
 }
 
 .pet-profile h2 {

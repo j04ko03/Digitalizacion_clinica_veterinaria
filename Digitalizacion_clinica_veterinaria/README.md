@@ -7,10 +7,9 @@ This project is a single-page web application designed to display pet profiles u
 ```
 Digitalizacion_clinica_veterinaria
 ├── assets
-│   ├── images
 │   └── xml_xslt
 │       ├── fichamascotas.xml
-│       └── fichamascotas.xslt
+│       └── fichamascotas.xsl
 ├── src
 │   ├── css
 │   │   ├── fichas.css
@@ -18,6 +17,7 @@ Digitalizacion_clinica_veterinaria
 │   ├── html
 │   │   └── main.html
 │   └── js
+│       └── transformation.js
 ├── index.html
 └── README.md
 ```

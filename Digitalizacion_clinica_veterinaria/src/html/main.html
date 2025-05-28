@@ -9,20 +9,21 @@
 </head>
 <body>
     <header>
-        <h1>Gestión de veterinaria</h1>
-        <p>¡Mira a todas las mascotas que hay disponibles!</p>
+        <h1>¡Salva vidas!</h1>
+        <p>Te están esperando</p>
     </header>
     <main>
         <h2>Información de mascotas</h2>
-        <div id="pet-profiles">
-            <xsl:apply-templates select="pets/pet"/>
-        </div>
+        <div id="pet-profiles"></div>
     </main>
 
     <footer>
         <p>&copy; 2025 Veterinaria</p>
     </footer>
     <script src="../js/transformation.js"></script>
-
+    <script>
+        const xmlFile = "../../assets/xml_xslt/fichamascotas.xml";
+        const xsltFile = "../../assets/xml_xslt/fichamascotas.xsl";
+    </script>
 </body>
 </html>
