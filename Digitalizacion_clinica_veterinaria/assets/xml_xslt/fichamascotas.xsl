@@ -52,6 +52,43 @@
                         <xsl:if test="vacunacions/vacuna">
                             <p><strong>Última vacuna:</strong> <xsl:value-of select="vacunacions/vacuna[1]/nom_vacuna"/></p>
                         </xsl:if>
+
+                        <!-- Datos del propietario -->
+                        <xsl:if test="dades_propietari">
+                            <div class="owner-details" style="margin-top:10px;padding:10px;background:#f6f6f6;border-radius:6px;">
+                                <strong>Propietario:</strong>
+                                <ul style="margin:5px 0 0 15px;padding:0;">
+                                    <li><strong>Nombre:</strong> <xsl:value-of select="dades_propietari/nom_propietari"/> <xsl:value-of select="dades_propietari/cognom"/></li>
+                                    <li><strong>Dirección:</strong> <xsl:value-of select="dades_propietari/adreca"/></li>
+                                    <li><strong>Email:</strong> <xsl:value-of select="dades_propietari/direccio_correu_electronic"/></li>
+                                    <li><strong>Teléfono:</strong> <xsl:value-of select="dades_propietari/telefon"/></li>
+                                </ul>
+                            </div>
+                        </xsl:if>
+
+                        <!-- Visitas -->
+                        <xsl:if test="visites/visita">
+                            <div class="visits-details" style="margin-top:10px;padding:10px;background:#f9f9f9;border-radius:6px;">
+                                <strong>Visitas:</strong>
+                                <ul style="margin:5px 0 0 15px;padding:0;">
+                                    <xsl:for-each select="visites/visita">
+                                        <li style="margin-bottom:8px;">
+                                            <strong>Fecha:</strong> <xsl:value-of select="data_visita"/> |
+                                            <strong>Motivo:</strong> <xsl:value-of select="motiu_consulta"/>
+                                            <xsl:if test="diagnostic">
+                                                <br/><strong>Diagnóstico:</strong> <xsl:value-of select="diagnostic"/>
+                                            </xsl:if>
+                                            <xsl:if test="tractament">
+                                                <br/><strong>Tratamiento:</strong> <xsl:value-of select="tractament"/>
+                                            </xsl:if>
+                                            <xsl:if test="alta">
+                                                <br/><strong>Alta:</strong> <xsl:value-of select="alta"/>
+                                            </xsl:if>
+                                        </li>
+                                    </xsl:for-each>
+                                </ul>
+                            </div>
+                        </xsl:if>
                     </div>
                 </div>
             </div>
